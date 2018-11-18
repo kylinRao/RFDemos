@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="uiautomator" type="library" format="ROBOT" generated="20181117 23:50:26">
+<version></version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>Python wrapper for Android uiautomator tool.</doc>
+<kw name="Point">
+<arguments>
+<arg>x=0</arg>
+<arg>y=0</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Rect">
+<arguments>
+<arg>top=0</arg>
+<arg>left=0</arg>
+<arg>bottom=100</arg>
+<arg>right=100</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>

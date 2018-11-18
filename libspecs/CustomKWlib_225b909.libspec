@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="CustomKWlib" type="library" format="ROBOT" generated="20181114 23:51:39">
+<version></version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>CustomKWlib 可供关键字开发人员做样例参考，可以用来存放自定义的关键字，与系统第三方库分离开来
+
+关键字使用举例:
+| Compare Json | {'a':'b'} | {'a':'b'} |
+| ${sum} | Add Test | 1 | 2 |</doc>
+<kw name="Add Test">
+<arguments>
+<arg>a</arg>
+<arg>b</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+<kw name="Compare Json">
+<arguments>
+<arg>actStr</arg>
+<arg>expectStr</arg>
+</arguments>
+<doc>比较两个json字符串，第一个参数是需要对比的字符串，第二个参数是我们预期的结果.
+支持如下几种匹配方式：
+
+1、完全匹配
+
+2、仅匹配部分key存在即表示验证通过，不严格校验对应key的value值是什么
+
+3、模糊匹配，校验key对应的value只要包含某些字符串即表示验证通过
+样例:
+| `Compare Json` | {'a':'b'} | {'a':'b'}  |
+| `Compare Json` | {'a0':{'a1':{'a2':'b2'}},'aa0':'bb0'} | {'a0':{'a1':{'a2':'b2'}},'aa0':'bb0'} |
+| `Compare Json` | {'a':'b','aa':'bb 其他字符串'}  | {'a':'b','aa':'@FMbb'} |
+| `Compare Json` | {'a':'b','aa':'aa这个key对应的value每次返回都比较随机，没有校验的基准，那么我们可以校验这个aa key是否存在'}  | {'a':'b','aa':'@CK'} |
+
+
+Examples:
+| `Compare Json` | {'a':'b'} | {'a':'b'}  |
+| `Compare Json` | {'a0':{'a1':{'a2':'b2'}},'aa0':'bb0'} | {'a0':{'a1':{'a2':'b2'}},'aa0':'bb0'} |
+| `Compare Json` | {'a':'b','aa':'bb Other String'}  | {'a':'b','aa':'@FMbb'} |
+| `Compare Json` | {'a':'b','aa':'something changes frequently,we can check whether the key '''aa''' exsits or not'}  | {'a':'b','aa':'@CK'} |</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Convert To Dictionary">
+<arguments>
+<arg>str</arg>
+</arguments>
+<doc></doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>

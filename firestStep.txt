@@ -1,0 +1,15 @@
+*** Setting ***
+Library    OperatingSystem    
+Library    String  
+   
+*** Test Cases ***
+配置环境变量
+    ${libPath}=    Join Path     ${CURDIR}   lib
+    log   %{path}
+    #如果CURDIR路径在环境变量里面，那么libInpath就不会为空
+    ${libInPath}=    Get Lines Containing String    %{PATH}    ${libPath}    
+    log  ${libInPath}  
+    Run Keyword If   r'${libInPath}'==''     Append To Environment Variable    PATH   ${libPath} 
+        ...    ELSE    log    "自定义lib路径已经加环境变量中"
+           
+        

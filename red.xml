@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<projectConfiguration>
+    <configVersion>2</configVersion>
+    <robotExecEnvironment path="D:/APPS/python37" interpreter="Python"/>
+    <relativeTo>WORKSPACE</relativeTo>
+    <referencedLibrary type="PYTHON" name="CustomKWlib" path="C:/REDX64/projects/lib"/>
+    <referencedLibrary type="PYTHON" name="DatabaseLibrary" path="C:/REDX64/projects/thirdLib"/>
+    <referencedLibrary type="PYTHON" name="Selenium2Library" path="C:/REDX64/projects/thirdLib"/>
+    <referencedLibrary type="PYTHON" name="RequestsLibrary" path="C:/REDX64/projects/thirdLib"/>
+    <referencedLibrary type="PYTHON" name="AppiumLibrary" path="D:/APPS/python37/Lib/site-packages"/>
+    <referencedLibrary type="PYTHON" name="requests" path="D:/APPS/python37/Lib/site-packages"/>
+    <referencedLibrary type="PYTHON" name="json" path="D:/APPS/python37/Lib"/>
+    <referencedLibrary type="PYTHON" name="jsonpatch" path="D:/APPS/python37/Lib/site-packages"/>
+    <referencedLibrary type="PYTHON" name="CustomKWlib.CustomKWs" path="C:/REDX64/projects/lib"/>
+    <referencedLibrary type="PYTHON" name="uiautomator" path="D:/APPS/python37/Lib/site-packages"/>
+    <referencedLibrary type="PYTHON" name="uiautomatorlibrary" path="D:/APPS/python37/Lib/site-packages"/>
+    <pythonpath/>
+    <classpath/>
+    <excludedForValidation/>
+    <isValidatedFileSizeCheckingEnabled>true</isValidatedFileSizeCheckingEnabled>
+    <validatedFileMaxSize>1024</validatedFileMaxSize>
+    <isReferencedLibrariesAutoReloadEnabled>true</isReferencedLibrariesAutoReloadEnabled>
+    <isReferencedLibrariesAutoDiscoveringEnabled>true</isReferencedLibrariesAutoDiscoveringEnabled>
+    <isLibrariesAutoDiscoveringSummaryWindowEnabled>true</isLibrariesAutoDiscoveringSummaryWindowEnabled>
+</projectConfiguration>

@@ -1,0 +1,10 @@
+*** Setting ***
+Resource    ../conf/oaSetting.txt
+*** Test Cases ***
+customKW_case
+    Compare Json    {"a":"b","c":"d","a01":{"a02":"b02"}}    {"c":"d","a01":"@CK"}
+    Compare Json    {"a":"b","c":"d","a01":{"a02":"b02"}}    {"c":"d","a01":{"a02":"@FMb"}}
+    
+    
+    ${sum}    Add Test    a=1    b=2
+    log    ${sum}

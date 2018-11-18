@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/9.0.0.0/myTestSuit002.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/conf/globalVar.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.project.editor.activePage.myRobotProjectTest001">
+		<item value="ReferencedLibrariesProjectConfigurationEditorPart" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/9.0.0.0/数据驱动模板样例.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/9.0.0.0/remoteLibTest.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/0.firestStep/firestStep.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/firestStep.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/9.0.0.0/test.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/conf/oaSetting.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/conf/globalKeywords.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/conf/globalSetting.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/9.0.0.0/myTestSuit001.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/libspecs/firestStep.txt">
+		<item value="" key="activePage"/>
+	</section>
+	<section name="org.robotframework.ide.tableditor.activePage./myRobotProjectTest001/9.0.0.0/firefox.txt">
+		<item value="" key="activePage"/>
+	</section>
+</section>

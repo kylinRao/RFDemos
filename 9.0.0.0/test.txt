@@ -1,0 +1,12 @@
+*** Setting ***
+Resource    ../conf/globalSetting.txt
+*** Test Cases ***
+浏览器操作
+    Open Browser    url=http://www.baidu.com  browser=gc
+字符对比操作
+        Compare Json    actStr={'a':'b','aa':'aa这个key对应的value每次返回都比较随机，没有校验的基准，那么我们可以校验这个aa key是否存在'}    expectStr={'a':'b','aa':'@FMaa'}    
+数据库操作
+    # Execute Sql String    sqlString    
+    @{ss}=    Split String    string=a;b;c;efg;   separator=;  
+    Log Many         ${ss}
+    

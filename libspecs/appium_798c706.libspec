@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="appium" type="library" format="ROBOT" generated="20181113 21:46:40">
+<version></version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>Appium Python Client</doc>
+</keywordspec>

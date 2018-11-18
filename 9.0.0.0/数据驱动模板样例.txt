@@ -1,0 +1,26 @@
+*** Settings ***
+Test Template         login keyWords
+
+Suite Setup    log    suite setup
+Suite Teardown    log    suite Teardown
+
+*** Variable ***
+${VALID PASSWORD}    1111
+${VALID USERNAME}    222
+*** Test Cases ***    USERNAME             PASSWORD
+# Invalid Username      invalid              ${VALID PASSWORD}
+# Invalid Password      ${VALID USERNAME}    invalid
+# Invalid Both          invalid              invalid
+Empty Username        ${EMPTY}             ${VALID PASSWORD}
+Empty Password        ${VALID USERNAME}    ${EMPTY}
+Empty Both            ${EMPTY}             ${EMPTY}
+
+*** Keywords ***
+login keyWords
+    
+    [Arguments]    ${username}    ${password}
+    log many   Input Username    ${username}
+    log many   Input Password    ${password}
+    log many   Submit Credentials
+    log many   Error Page Should Be Open
+    

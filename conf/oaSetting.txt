@@ -1,0 +1,15 @@
+*** Setting ***
+Resource    globalSetting.txt
+*** Variable ***
+##基本路径配置
+# ${BVAR_PROJECT_ROOT_PATH}    C:/projects/RED/myRobotProjectTest001/
+# BVAR_PROJECT_RES_PATH=BVAR_PROJECT_ROOT_PATH+'conf/'
+# BVAR_GLOBAL_KW_FILE=BVAR_PROJECT_RES_PATH+'globalKeywords.txt'
+# BVAR_GLOBAL_SETTING_FILE=BVAR_PROJECT_RES_PATH+'globalSetting.txt' 
+###业务相关配置
+${VAR_SERVICE_IP}    192.168.1.104	#服务器单板的ip地址
+${VAR_SERVICE_PORT}   9999			#服务地单板的开放端口
+*** Keyword ***
+执行oa数据库操作
+    [Arguments]    ${sqlString}
+    ExecMysqlSql    database    host    port    user    password    ${sqlString}

@@ -1,0 +1,35 @@
+*** Setting ***
+Library    Selenium2Library         
+Library    RequestsLibrary
+Library    CustomKWlib   
+Library    DatabaseLibrary   
+
+Library    String
+Library    Collections    
+Library    DateTime    
+Library    OperatingSystem    
+Library    Screenshot    
+Library    Telnet    
+Library    Process    
+Library    XML    
+Library    Dialogs    
+*** Keywords ***
+simple Post Request
+    [Arguments]    ${host}    ${uri}   ${Content-Type}     ${data}
+    [Documentation]   封装 postrequest，建议每个接口测试单独新建一个txt文件，每个个借口都实现一次simplePost关键字    
+    ${header}=   Create Dictionary    Content-Type=${Content-Type}
+    Create Session    hostalias    url=${host}    headers=${header}
+    ${resp}  Post Request  hostalias    ${uri}  data=${data}     
+    log   simplePost ends
+    [Return]   ${resp}    
+Execute Many Sql String
+    [Arguments]    ${sqlString}
+    @{singleSqlList}=    Split String    string=${sqlString}   separator=;  
+    :FOR    ${singleSql}   in    ${singleSqlList}
+    \    Run Keyword If    ${singleSql}!=''    Execute Sql String    ${singleSql}             
+ExecMysqlSql
+    [Documentation]    execMysqlSql  ${database}    ${host}    ${port}    ${user}    ${password}   ${sqlString}
+    [Arguments]    ${database}    ${host}    ${port}    ${user}    ${password}   ${sqlString}
+    Connect To Database Using Custom Params   pymysql    host='${host}',port=${port},user='${user}',passwd='${password}',db='${database}'
+    Execute Many Sql String   ${sqlString}  
+

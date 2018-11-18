@@ -1,0 +1,53 @@
+*** Setting ***
+Suite Setup    log    测试套件的setup
+Suite Teardown    log    测试套件的teardown
+Resource    ../conf/oaSetting.txt
+*** Variable ***
+${baiduUrl}    https://www.baidu.com    #百度链接
+${rentPhoneUrl}    http://192.168.1.104:9999
+${VAR_SERVICE_IP}    123434
+
+*** Keywords ***
+simplePost
+    [Arguments]    ${host}    ${uri}   ${Content-Type}     ${data}
+    [Documentation]   封装 postrequest，建议每个接口测试单独新建一个txt文件，每个个借口都实现一次simplePost关键字    
+    ${header}   Create Dictionary    Content-Type=${Content-Type}  charset=UTF-8
+    Create Session    hostalias    url=${host}    headers=${header}
+    # ${data}     Create Dictionary    ${*data}
+    ${resp}  Post Request  hostalias    ${uri}  data=${data}
+     
+    log   simplePost ends
+    [Return]   ${resp}
+    
+myKw
+    [Arguments]    ${arg1}
+    Log     ${arg1}  
+    
+myKw001
+    Log    message
+    
+*** Test Cases ***
+globalVarTest_case_001
+    log    ${VAR_SERVICE_ip}
+    log     ${VAR_SERVICE_PORT}
+
+myTest
+    [Setup]    log    单条用例的setup
+    
+    myKw001
+    
+    Create Session    baidu    url=https://www.baidu.com
+    ${resp}  Get Request  baidu  /
+    myKw  ${resp.content}
+    [Teardown]    log   用例结束
+       
+    # RequestsLibrary.Post    alias=None    uri=https://www.baidu.com
+# rentMethod_case_001
+    # ${header}   Create Dictionary    Content-Type=application/x-www-form-urlencoded  charset=UTF-8
+    # ${data}     Create Dictionary    method=rent   phoneType=xiaomi2s
+    # Create Session    rentUrl    url=${rentPhoneUrl}    headers=${header}
+    # ${resp}  Post Request  rentUrl  /rentPhoneReport   data=${data}   headers=${header}
+    # myKw  ${resp.content}
+# simplePost_case_001
+    # ${resp}   simplePost   http://192.168.1.104:9999    /rentPhoneReport    application/x-www-form-urlencoded   method=rent&phoneType=xiaomi2s
+    # Compare Json    ${resp.content}    {"responseCode": 0}   

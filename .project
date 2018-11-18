@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>myRobotProjectTest001</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.robotframework.ide.eclipse.main.plugin.robotLibrariesBuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>libspecs/AppiumLibrary.py</name>
+			<type>1</type>
+			<location>D:/APPS/python37/lib/site-packages/AppiumLibrary/keywords/_element.py</location>
+		</link>
+		<link>
+			<name>libspecs/BuiltIn.py</name>
+			<type>1</type>
+			<location>D:/APPS/python37/lib/site-packages/robot/libraries/BuiltIn.py</location>
+		</link>
+		<link>
+			<name>libspecs/RequestsLibrary.py</name>
+			<type>1</type>
+			<location>D:/APPS/python37/lib/site-packages/RequestsLibrary/RequestsKeywords.py</location>
+		</link>
+		<link>
+			<name>libspecs/Selenium2Library.py</name>
+			<type>1</type>
+			<location>D:/APPS/python37/Lib/site-packages/Selenium2Library/__init__.py</location>
+		</link>
+	</linkedResources>
+</projectDescription>

@@ -1,0 +1,10 @@
+[ ERROR ] Error in file 'C:\projects\RED\myRobotProjectTest001\conf\globalSetting.txt': Importing test library 'CustomKWlib' failed: ModuleNotFoundError: No module named 'CustomKWlib'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  C:\projects\RED\myRobotProjectTest001\9.0.0.0
+  D:\APPS\python37\python37.zip
+  D:\APPS\python37\DLLs
+  D:\APPS\python37\lib
+  D:\APPS\python37
+  D:\APPS\python37\lib\site-packages

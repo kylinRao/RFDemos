@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<keywordspec name="jsonpatch" type="library" format="ROBOT" generated="20181114 23:16:45">
+<version>1.23</version>
+<scope>global</scope>
+<namedargs>yes</namedargs>
+<doc>Apply JSON-Patches (RFC 6902) </doc>
+<kw name="Apply Patch">
+<arguments>
+<arg>doc</arg>
+<arg>patch</arg>
+<arg>in_place=False</arg>
+</arguments>
+<doc>Apply list of patches to specified json document.
+
+:param doc: Document object.
+:type doc: dict
+
+:param patch: JSON patch as list of dicts or raw JSON-encoded string.
+:type patch: list or str
+
+:param in_place: While :const:`True` patch will modify target document.
+                 By default patch will be applied to document copy.
+:type in_place: bool
+
+:return: Patched document object.
+:rtype: dict
+
+&gt;&gt;&gt; doc = {'foo': 'bar'}
+&gt;&gt;&gt; patch = [{'op': 'add', 'path': '/baz', 'value': 'qux'}]
+&gt;&gt;&gt; other = apply_patch(doc, patch)
+&gt;&gt;&gt; doc is not other
+True
+&gt;&gt;&gt; other == {'foo': 'bar', 'baz': 'qux'}
+True
+&gt;&gt;&gt; patch = [{'op': 'add', 'path': '/baz', 'value': 'qux'}]
+&gt;&gt;&gt; apply_patch(doc, patch, in_place=True) == {'foo': 'bar', 'baz': 'qux'}
+True
+&gt;&gt;&gt; doc == other
+True</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Make Patch">
+<arguments>
+<arg>src</arg>
+<arg>dst</arg>
+</arguments>
+<doc>Generates patch by comparing of two document objects. Actually is
+a proxy to :meth:`JsonPatch.from_diff` method.
+
+:param src: Data source document object.
+:type src: dict
+
+:param dst: Data source document object.
+:type dst: dict
+
+&gt;&gt;&gt; src = {'foo': 'bar', 'numbers': [1, 3, 4, 8]}
+&gt;&gt;&gt; dst = {'baz': 'qux', 'numbers': [1, 4, 7]}
+&gt;&gt;&gt; patch = make_patch(src, dst)
+&gt;&gt;&gt; new = patch.apply(src)
+&gt;&gt;&gt; new == dst
+True</doc>
+<tags>
+</tags>
+</kw>
+<kw name="Multidict">
+<arguments>
+<arg>ordered_pairs</arg>
+</arguments>
+<doc>Convert duplicate keys values to lists.</doc>
+<tags>
+</tags>
+</kw>
+</keywordspec>
