@@ -5,47 +5,62 @@ Library   ../lib/CustomKWlib/CustomKWs.py
 Library   DatabaseLibrary
 # Library   uiautomatorlibrary
 *** Test Cases ***
-# remoteLibExampleCase01
-    # 从数据库获取一个笑话并更新改笑话状态为已使用
+循环点赞
+        Open Application    remote_url=http://127.0.0.1:4723/wd/hub    platformName=Android    deviceName=9bbf4a7c  appPackage=com.bdvtt.www    appActivity=.ui.activity.SplashActivity    noReset=True  unicodeKeyboard=True    resetKeyboard=True
+    ${noRest}=    Get Capability    capability_name=noReset
+    log    ${noRest}
+    Sleep    6s    
+    
+    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/iv3']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv3']
+    # Sleep    1s 
+    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/img_duanzishou']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_duanzishou']
+    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/tv_top_right_text']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/tv_top_right_text']
+    :FOR    ${index}    IN RANGE    1    696
+    \    点赞我的发布
     
 remoteLibExampleCase
     
     
     
-    Open Application    remote_url=http://127.0.0.1:4723/wd/hub    platformName=Android    deviceName=ZY223P67ZR  appPackage=com.bdvtt.www    appActivity=.ui.activity.SplashActivity    noReset=True  unicodeKeyboard=True    resetKeyboard=False
+    Open Application    remote_url=http://127.0.0.1:4723/wd/hub    platformName=Android    deviceName=9bbf4a7c  appPackage=com.bdvtt.www    appActivity=.ui.activity.SplashActivity    noReset=True  unicodeKeyboard=True    resetKeyboard=True
     ${noRest}=    Get Capability    capability_name=noReset
     log    ${noRest}
-    Sleep    6s    
+    Sleep    8s    
     
-    Wait Until Element Is Visible    locator=com.bdvtt.www:id/iv3
-    Click Element    locator=com.bdvtt.www:id/iv3
+    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/iv3']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv3']
     # Sleep    1s 
-    # Wait Until Element Is Visible    locator=com.bdvtt.www:id/img_duanzishou
-    Click Element    locator=com.bdvtt.www:id/img_duanzishou
+    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/img_duanzishou']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_duanzishou']
     # Sleep    1s 
-    Wait Until Element Is Visible    locator=com.bdvtt.www:id/tv_duanzi
-    Click Element    locator=com.bdvtt.www:id/tv_duanzi
-    :FOR    ${index}    IN RANGE    1    102
+    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/tv_duanzi']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/tv_duanzi']
+    :FOR    ${index}    IN RANGE    1    25
     \    # 输入段子笑话信息
     \    ${aJoke}=    从数据库获取一个笑话并更新改笑话状态为已使用
-    \    Input Text    locator=com.bdvtt.www:id/add_content    text=${aJoke}
-    \    # \    Sleep    1s
-    \    Wait Until Element Is Visible    locator=com.bdvtt.www:id/btok
-    \    Click Element    locator=com.bdvtt.www:id/btok
+    \    Input Text    xpath=//*[@resource-id='com.bdvtt.www:id/add_content']    text=${aJoke}
+    \    Sleep    1s
+    \    
+    \    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/btok']
+    \    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/btok']
     # \    sleep    1s
     
     
 登录测试
-    @{user_list}  Set Variable    15243858526    15903896504    13126769945    13269039274    15273875421    18473814775    13408095296    18798904526    18702840219    18728055464    18780020284    13052093752        
+    @{user_list}  Set Variable          13269039274    15273875421    18473814775    13408095296    18798904526    18702840219    18728055464    18780020284    13052093752        
     Log Many    登录
     Open Application    remote_url=http://127.0.0.1:4723/wd/hub    platformName=Android    deviceName=ZY223P67ZR  appPackage=com.bdvtt.www    appActivity=.ui.activity.SplashActivity    noReset=True    unicodeKeyboard=False    resetKeyboard=False    nativeInstrumentsLib=False
     ${noRest}=    Get Capability    capability_name=noReset
     log    ${noRest}
+    
     Sleep    6s   
     :FOR    ${user}    in    @{user_list}
     \    log    当前手机号是：${user}
     \     模拟滑动滑块登录    ${user}    123456
-    \     点赞第一条
+    \     点赞相册
     \     退出登录状态
 
       
@@ -53,30 +68,58 @@ remoteLibExampleCase
     
     
 *** Keyword ***
+点赞我的发布
+    Swipe    start_x=500    start_y=500    offset_x=500    offset_y=1000
+    sleep    1s    
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_xiao']
+    sleep    1s
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_xiao']
+    
+点赞相册
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv1']
+    # 点赞美食
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv_find1_cate']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_zan']
+    sleep    2s
+    
+    
+    # 点赞本地美景
+    Go Back
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv_find2_beauty']
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_zan']
+    sleep    2s
+    
+    # 点赞本地萌宝
+    Go Back
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv_find4_baby']
+    
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_zan']
+    sleep    2s
+    Go Back
 点赞第一条
     Log Many    点赞迪奥一套 
 
-    Click Element    locator=com.bdvtt.www:id/iv3
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv3']
     Click Element    xpath=//*[@text='段子']
 
-    Click Element    locator=com.bdvtt.www:id/img_xiao
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/img_xiao']
     
 退出登录状态
     Log Many    退出登录状态
     # Wait Until Element Is Visible    locator=com.bdvtt.www:id/iv5
-    Click Element    locator=com.bdvtt.www:id/iv5
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv5']
     
-    Click Element    locator=com.bdvtt.www:id/centert_civ_header
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/centert_civ_header']
     # Swipe By Percent    start_x=50    start_y=90    end_x=50    end_y=10     duration=200
     Swipe    start_x=500    start_y=1200    offset_x=500    offset_y=100    
     # \    点击退出
     # Wait Until Element Is Visible    locator=com.bdvtt.www:id/setting_loginout
-    Click Element    locator=com.bdvtt.www:id/setting_loginout
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/setting_loginout']   
     # \    确认退出
     # Wait Until Element Is Visible    locator=android:id/button1
-    Click Element    locator=android:id/button1    
+    Click Element    xpath=//*[@resource-id='android:id/button1']    
     # Wait Until Element Is Visible    locator=com.bdvtt.www:id/iv5
-    Click Element    locator=com.bdvtt.www:id/iv5  
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv5']  
 模拟滑动滑块登录    
     [Arguments]    ${user_name}    ${password}
     Log Many    模拟滑动滑块登录
@@ -84,21 +127,21 @@ remoteLibExampleCase
     ${time_now}=   Get Time    timeformat=epoch
     ${time_str}    Convert To String    item=${time_now}
     Log Many    ${time_str}
-    # Wait Until Element Is Visible    locator=com.bdvtt.www:id/iv5
-    Click Element    locator=com.bdvtt.www:id/iv5
+    Wait Until Element Is Visible    xpath=//*[@resource-id='com.bdvtt.www:id/iv5'] 
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/iv5']   
     # 点击登录
     # Wait Until Element Is Visible    locator=com.bdvtt.www:id/ll_login_no
-    Click Element    locator=com.bdvtt.www:id/ll_login_no
-    Input Text    locator=com.bdvtt.www:id/login_ed_name    text=${user_name}
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/ll_login_no']  
+    Input Text    xpath=//*[@resource-id='com.bdvtt.www:id/login_ed_name']      text=${user_name}
     
-    Input Text    locator=com.bdvtt.www:id/login_ed_passwd    text=${password}
+    Input Text    xpath=//*[@resource-id='com.bdvtt.www:id/login_ed_passwd']      text=${password}
     # 点击立即登录
-    Click Element    locator=com.bdvtt.www:id/login_bt_login
-    evaluate	os.system(r"D:\8855.wav")    modules=os
-    Sleep    6s  
+    Click Element    xpath=//*[@resource-id='com.bdvtt.www:id/login_bt_login']  
+    # evaluate	os.system(r"D:\8855.wav")    modules=os
+    Sleep    8s  
     
     
-    Capture Page Screenshot    filename=screenshots/${time_str}.png
+    
 获取一个笑话
     Log Many    获取一个笑话
     ${headers}    Create Dictionary    Content-Type    application/json;charset\=utf-8;
@@ -121,5 +164,6 @@ remoteLibExampleCase
     @{results}=    Set Variable    @{queryResults}[0]
     Execute Sql String    sqlString=update lengxiaohua set status=1 where id=@{results}[0];    
     Log Many    @{results}[0]    @{results}[1]
-    [Return]    @{results}[1]
+    ${aJoke}    Decode    customstr=@{results}[1]    mode=UTF-8
+    [Return]    ${aJoke}
     
